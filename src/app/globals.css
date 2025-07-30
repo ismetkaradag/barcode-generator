@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-only {
+    display: block !important;
+  }
+  
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .barcode-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 8px;
+  }
+  
+  .page-break-before {
+    page-break-before: always;
+  }
+  
+  /* Sayfa için boyut ayarları */
+  @page {
+    margin: 10mm;
+    size: A4;
+  }
+  
+  /* Print grid optimizasyonu */
+  .grid {
+    display: grid !important;
+  }
+  
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+  
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+  
+  /* Canvas print optimizasyonu */
+  canvas {
+    max-width: 100% !important;
+    height: auto !important;
+    page-break-inside: avoid;
+  }
+  
+  /* Single barcode per page positioning */
+  .single-barcode-page {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20mm;
+  }
+}
